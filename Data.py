@@ -48,15 +48,15 @@ def menu_choices1():
 def status(m_s):
   clear.clrscr()
   print "Stats:"
-  print "|                  |"
-  print "|------------------|\n\n"
+  print "|                  "
+  print "|----------------------\n\n"
   print "|Name: ",m_s[1],"HP: " + str(m_s[2]) + "|"
   print "|Power: ",m_s[3],"        "
   print "|Defense: ",m_s[4],"      "
   print "|Speed: ",m_s[5],"        "
   print "|Luck: ",m_s[6],"         \n\n"
-  print "|------------------|"
-  print "|                  |"
+  print "|----------------------"
+  print "|                  "
   input = raw_input("Type q to quit\n")
   if input.lower().startswith('q'):
     clear.clrscr()
