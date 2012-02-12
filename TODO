@@ -1,0 +1,10 @@
+Digitaks todo:
+-implement tutorial
+ -loopback tutorial to main menu (skip scene credits)
+-code cleanup (rewrite class structure)
+-README include how to play (commands)
+-Exit cleanly on Load game if no save file
+-clear screen and write for invalid input
+-ask to show intro (and save choice!)
+-fix stats screen (+ spacing)
+-redraw intro screen when exiting
