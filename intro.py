@@ -27,7 +27,7 @@ class first_screens:
     else:
       return int(u_input)
 
-def title_screen():
+def title_screen(initial):
   clear.clrscr() #ensures on program start terminal is not crowded or nasty
   x = '''
 |-----------
@@ -35,12 +35,12 @@ def title_screen():
 |  Digitaks
 |-------------
 '''
-  for i in x:
-    print i,
-    time.sleep(.2)
-  time.sleep(3)
-  print '\n'
-  #omit for design purposes?clear.clrscr()
+  if initial: #Only happens on first load!
+    for i in x:
+      print i,
+      time.sleep(.2)
+    time.sleep(3)
+    print '\n'
 
 def tutorial():
   clear.clrscr()

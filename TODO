@@ -8,4 +8,6 @@ Digitaks todo:
 -ask to show intro (and save choice!)
 -fix stats screen (+ spacing)
 -redraw intro screen when exiting
-
+-Add <17 input lines...
+-extra character movement (update screen)
+-add insta-kill insult feature!!
