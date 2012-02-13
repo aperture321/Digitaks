@@ -45,7 +45,7 @@ def menu_choices1():
     menu_choices1()
   return choice
 
-def status(m_s):
+def status(m_s): #TODO fix this!
   clear.clrscr()
   print "Stats:"
   print "|                  "
@@ -65,7 +65,7 @@ def status(m_s):
     status(m_s)
 
 def start_game(mons_stats):
-  clear.clrscr() #in case
+  #clear.clrscr() #DEBUG: comment out this line!
   print str(mons_stats[0])
   print random.choice(datatext.digi_status) + "\n\n"
   time.sleep(2)
@@ -86,8 +86,10 @@ def start_game(mons_stats):
     Savecatch.Game_save(mons_stats).save_game()
     start_game(mons_stats)
 
-def menuchoices2(mons_stats): ##adventure mode ##todo: add level locks
+def menuchoices2(mons_stats): #adventure mode
   clear.clrscr()
+  totalmons = sum(mons_stats[2:]) #total value of monster attributes
+  sorry = "Sorry, but you need more training!"
   print '''What would you like to do?
   [1]take a walk
   [2]take a stroll
@@ -107,16 +109,29 @@ def menuchoices2(mons_stats): ##adventure mode ##todo: add level locks
   elif activity == 1:
     mons_stats = Monsters.battle_mode(1, mons_stats).battle()
   elif activity == 2:
-    mons_stats = Monsters.battle_mode(2, mons_stats).battle()
+    if totalmons >= 70: #Variable cap. May need stat adjustment
+      mons_stats = Monsters.battle_mode(2, mons_stats).battle()
+    else:
+      print sorry
   elif activity == 3:
-    mons_stats = Monsters.battle_mode(3, mons_stats).battle()
+    if totalmons >= 80:
+      mons_stats = Monsters.battle_mode(3, mons_stats).battle()
+    else:
+      print sorry
   elif activity == 4:
-    mons_stats = Monsters.battle_mode(4, mons_stats).battle()
+    if totalmons >= 90:
+      mons_stats = Monsters.battle_mode(4, mons_stats).battle()
+    else:
+      print sorry
   elif activity == 5:
-    mons_stats = Monsters.battle_mode(5, mons_stats).battle()
+    if totalmons >= 100:
+      mons_stats = Monsters.battle_mode(5, mons_stats).battle()
+    else:
+      print sorry
   else:
     print "Not a valid option"
-    menuchoices2(mons_stats)
+    #menuchoices2(mons_stats) #strange bug, will refer to training!! o.O
+  time.sleep(3)
   return mons_stats
 
 def menuchoices3(mons_stats): ##training mode
@@ -177,6 +192,8 @@ def game():
       clear.clrscr()
       all_data = create_monster()
     start_game(all_data)
+    intro.title_screen(0)
     game()
-intro.title_screen()
+
+intro.title_screen(1)
 game()
